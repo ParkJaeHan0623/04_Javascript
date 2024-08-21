@@ -15,7 +15,7 @@ for(let i =0; i<p ; i++){
     
     const tmp =data[i];
     data[i]=data[k];
-    data[k]=data[i];
+    data[k]=tmp;
 }
 
 console.log(data);
