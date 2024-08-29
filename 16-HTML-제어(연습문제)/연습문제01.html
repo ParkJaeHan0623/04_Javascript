@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 50px;
+        }
+        #clock{
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock"></div>
+
+    <script>
+
+        function Clock(){
+        const date = new Date();
+        const yy = date.getFullYear();
+        const mm = date.getMonth() + 1;
+        const dd = date.getDate();
+        const hh = date.getHours();
+        const mi = date.getMinutes();
+        const ss = date.getSeconds();
+
+        const time = `${yy}-${mm}-${dd} ${hh}:${mi}:${ss}`
+
+        document.getElementById('clock').innerHTML = time;
+        }
+        
+        setInterval(Clock, 1000);
+        Clock();
+
+
+    </script>
+</body>
+</html>
