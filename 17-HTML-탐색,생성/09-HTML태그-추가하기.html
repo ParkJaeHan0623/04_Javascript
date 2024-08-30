@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #list{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+            .item{
+                padding: 5px 10px;
+                cursor: pointer;
+                border-bottom: 1px dotted #d5d5d5;
+                
+                &:first-child{
+                    border-top: 1px dotted #d5d5d5;
+                }
+                &.beforebegin{
+                    background-color: aquamarine;
+                }
+                &.afterend{
+                    background-color: yellow;
+                }
+                &.afterbegin{
+                    background-color: plum;
+                }
+                &.beforeend{
+                    background-color: greenyellow;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="comment" />
+    <button type="button" id="beforebegin">beforebegin</button>
+    <button type="button" id="afterend">afterend</button>
+    <button type="button" id="afterbegin">afterbegin</button>
+    <button type="button" id="beforeend">beforeend</button>
+    <hr />
+    <!-- beforebegin -->
+    <ul id="list">
+        <!-- afterbegin -->
+
+        <!-- beforeend -->
+
+    </ul>
+    <!-- afterend -->
+
+    <script>
+        function remove(target){
+            target.remove();
+        }
+
+        const list = document.querySelector('#list');
+        const comment = document.querySelector('#comment');
+
+        document.querySelector('#beforebegin').addEventListener('click',(e)=>{
+            list.insertAdjacentHTML('beforebegin',"<p class = 'item beforebegin' onclick='remove(this)'>" + comment.value + '</p>');
+
+        });
+        document.querySelector('#afterend').addEventListener('click',(e)=>{
+            list.insertAdjacentHTML('afterend',"<p class = 'item afterend' onclick='remove(this)'>" + comment.value + '</p>');
+
+        });
+        document.querySelector('#afterbegin').addEventListener('click',(e)=>{
+            list.insertAdjacentHTML('afterbegin',"<p class = 'item afterbegin' onclick='remove(this)'>" + comment.value + '</p>');
+
+        });
+        document.querySelector('#beforeend').addEventListener('click',(e)=>{
+            list.insertAdjacentHTML('beforeend',"<p class = 'item beforeend' onclick='remove(this)'>" + comment.value + '</p>');
+
+        });
+    </script>
+</body>
+</html>
